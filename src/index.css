@@ -125,3 +125,9 @@ button:focus-visible {
 #sidebar a {
   color: black;
 }
+
+
+#error-page {
+  text-align: center;
+  margin-top: 25%;
+}
