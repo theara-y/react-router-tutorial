@@ -26,8 +26,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  justify-content: center;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -67,4 +65,63 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+#root {
+  width: 100%;
+}
+
+#sidebar {
+  display: grid;
+  grid-template-rows: 10% 1fr 10%;
+  grid-template-columns: 1fr;
+  width: 30%;
+  height: 100%;
+  background: #f1f1f1;
+}
+
+#sidebar h1 {
+  grid-area: 3 / 1 / 3 / 1;
+  font-size: 1em;
+  margin: 0;
+  padding: 0 0 0 2em;
+  line-height: 4em;
+  border-top: 1px solid rgb(198, 195, 195);
+}
+
+#sidebar>div {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 1em;
+  gap: 0.5em;
+  border-bottom: 1px solid rgb(198, 195, 195);
+}
+
+#sidebar form input {
+  border: 1px solid gray;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+#sidebar form button {
+  width: 100%;
+  height: 100%;
+  font-size: 0.75em;
+  border: 1px solid gray;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1em;
+}
+
+#sidebar li {
+  margin: 1em;
+}
+
+#sidebar a {
+  color: black;
 }
