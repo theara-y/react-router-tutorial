@@ -2,9 +2,14 @@ import { v4 as uuid } from 'uuid';
 
 let contacts = {}
 
-export async function getContacts() {
+export async function getContacts(searchText) {
     return new Promise((resolve, reject) => {
-        resolve(Object.values(contacts));
+        let result = Object.values(contacts);
+
+        if (searchText !== null)
+            result = result.filter(contact => contact.first.includes(searchText));
+        console.log('result', result);
+        resolve(result);
     });
 }
 
@@ -32,7 +37,8 @@ export async function getContact(id) {
 
 export async function updateContact(id, update) {
     return new Promise((resolve, reject) => {
-        contacts = {...contacts, [id]: update};
+        contacts = {...contacts, [id]: {id, ...update}};
+        console.log(contacts);
         resolve(true);
     });
 }
