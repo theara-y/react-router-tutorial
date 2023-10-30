@@ -31,14 +31,17 @@ export async function createContact() {
 
 export async function getContact(id) {
     return new Promise((resolve, reject) => {
-        resolve(contacts[id])
+        setTimeout(() => {
+            resolve(contacts[id])
+        }, 0)
     });
 }
 
 export async function updateContact(id, update) {
     return new Promise((resolve, reject) => {
-        contacts = {...contacts, [id]: {id, ...update}};
-        console.log(contacts);
+        let contact = contacts[id];
+        let newContact = {...contact, ...update}
+        contacts = {...contacts, [id]: newContact};
         resolve(true);
     });
 }
