@@ -20,7 +20,7 @@ export async function createContact() {
             notes: "Some notes",
             favorite: true,
         }
-        resolve(true);
+        resolve(contacts[contactId]);
     });
 }
 
