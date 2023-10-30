@@ -29,3 +29,10 @@ export async function getContact(id) {
         resolve(contacts[id])
     });
 }
+
+export async function updateContact(id, update) {
+    return new Promise((resolve, reject) => {
+        contacts = {...contacts, [id]: update}
+        resolve(true);
+    });
+}
