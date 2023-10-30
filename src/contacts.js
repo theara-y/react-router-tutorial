@@ -32,7 +32,14 @@ export async function getContact(id) {
 
 export async function updateContact(id, update) {
     return new Promise((resolve, reject) => {
-        contacts = {...contacts, [id]: update}
+        contacts = {...contacts, [id]: update};
+        resolve(true);
+    });
+}
+
+export async function deleteContact(id) {
+    return new Promise((resolve, reject) => {
+        delete contacts[id];
         resolve(true);
     });
 }
