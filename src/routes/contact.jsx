@@ -1,16 +1,15 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
+import { getContact } from '../contacts';
+
+export async function loader({ params }) {
+  const contact = await getContact(params.contactId);
+  return { contact: contact };
+}
 
 export default function Contact() {
-  const contact = {
-    first: "Your",
-    last: "Name",
-    avatar: "https://placekitten.com/g/200/200",
-    twitter: "your_handle",
-    notes: "Some notes",
-    favorite: true,
-  };
+  const { contact } = useLoaderData();
 
-  return (
+  return contact ? (
     <div id="contact">
       <div>
         <img
@@ -20,6 +19,7 @@ export default function Contact() {
       </div>
 
       <div>
+        <h1>{contact.id}</h1>
         <h1>
           {contact.first || contact.last ? (
             <>
@@ -66,7 +66,7 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  );
+  ) : (<p>Test</p>)
 }
 
 function Favorite({ contact }) {

@@ -1,3 +1,31 @@
+import { v4 as uuid } from 'uuid';
+
+let contacts = {}
+
 export async function getContacts() {
-    return [];
+    return new Promise((resolve, reject) => {
+        resolve(Object.values(contacts));
+    });
+}
+
+export async function createContact() {
+    return new Promise((resolve, reject) => {
+        const contactId = uuid();
+        contacts[contactId] = {
+            id: contactId,
+            first: "Your",
+            last: "Name",
+            avatar: "https://placekitten.com/g/200/200",
+            twitter: "your_handle",
+            notes: "Some notes",
+            favorite: true,
+        }
+        resolve(true);
+    });
+}
+
+export async function getContact(id) {
+    return new Promise((resolve, reject) => {
+        resolve(contacts[id])
+    });
 }
