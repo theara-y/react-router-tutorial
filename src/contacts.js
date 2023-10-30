@@ -39,10 +39,12 @@ export async function getContact(id) {
 
 export async function updateContact(id, update) {
     return new Promise((resolve, reject) => {
-        let contact = contacts[id];
-        let newContact = {...contact, ...update}
-        contacts = {...contacts, [id]: newContact};
-        resolve(true);
+        setTimeout(() => {
+            let contact = contacts[id];
+            let newContact = { ...contact, ...update }
+            contacts = { ...contacts, [id]: newContact };
+            resolve(true);
+        }, 500)
     });
 }
 
